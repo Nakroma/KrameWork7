@@ -113,7 +113,7 @@
 			$this->report->appendLine($error->getPrefix() . ' : ' . $error->getName())->indent();
 			$this->report->appendLine('> Server: ' . \php_uname());
 			$this->report->appendLine('> Message: ' . $error->getMessage());
-			$this->report->appendf('> Occurred: %$2s (%$1s)', $t = \time(), \date(\DATE_RFC2822, $t))->newLine();
+			$this->report->appendf('> Occurred: %2$s (%1$s)', $t = \time(), \date(\DATE_RFC2822, $t))->newLine();
 			$this->report->appendf('> Script: %s (Line %s)', $error->getFile(), $error->getLine());
 
 			$debug = $error->getDebugData();
@@ -194,7 +194,7 @@
 		 */
 		public function __toString(): string {
 			$this->report->outdent()->newLine();
-			$this->report->appendf('Report generated automatically on %$2s (%$1s).', $t = \time(), \date(\DATE_RFC2822, $t));
+			$this->report->appendf('Report generated automatically on %2$s (%1$s).', $t = \time(), \date(\DATE_RFC2822, $t));
 
 			if ($this->wrapPreTags)
 				$this->report->prepend('<pre>')->append('</pre>');
@@ -210,7 +210,7 @@
 		 */
 		public function generate():IErrorReport {
 			$this->report->outdent()->newLine();
-			$this->report->appendf('Report generated automatically on %$2s (%$1s).', $t = \time(), \date(\DATE_RFC822, $t));
+			$this->report->appendf('Report generated automatically on %2$s (%1$s).', $t = \time(), \date(\DATE_RFC822, $t));
 
 			if ($this->wrapPreTags)
 				$this->report->prepend('<pre>')->append('</pre>');
